@@ -1,6 +1,17 @@
 # Mailing API build with Django Rest Framework
 Api lets You define Mailbox from which email will be sent, Template which is the content of you email and Email which sets adresees.
 
+# ENDPOINTS
+Endpoint            |Method            |Result
+-- | -- | --
+`api/mailbox/`|***GET, POST***| GET all, POST new
+`api/mailbox/:id/`|***GET, PUT, PATCH, DELETE***|GET one, UPDATE one, DELETE one
+| |
+`api/template/`|***GET, POST***| GET all, POST new
+`api/template/:id/`|***GET, PUT, PATCH, DELETE*** |GET one, UPDATE one, DELETE one
+ | |
+`api/email/`|***GET, POST***|GET all, POST new and try to send it
+# Post request example
 # Used components:
 - [Python](https://www.python.org/) 3.8.3
 - [Django](https://www.djangoproject.com/) 3.1.2
@@ -27,8 +38,8 @@ virtualenv virtualenv_name
 #### 2. Install and configure PostgreSQL
 Django girls has great tutorial [HERE](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation)
 #### 3. Install Redis
-[For linux/mac](https://redis.io/download) - Download needed files, scroll downand follow instructions.
-[For windows](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504) - For windows You have to download ` Redis-x64-3.0.504.zip` file. Extract containing files and run `redis-server.exe`.
+[For linux/mac](https://redis.io/download) - Download needed files, scroll downand follow instructions.\
+[For windows](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504) - For windows You have to download ` Redis-x64-3.0.504.zip` file. Extract containing files, place of extraction does not matter.
 #### 4. Clone repository and install requirements
 ```bash
 # Clone repository
@@ -38,11 +49,13 @@ cd DRF-mailing-API
 # Install required packages
 pip install -r requirements.txt
 ```
+
+
 #### 3. Configurations
-1. .env file
-**Note that there can't be any space between variable and value.**
-SECRET_KEY=supersecretvalue     :white-check-mark:
-SECRET_KEY = supersecretvalue   :x:
+**I. .env file**\
+**Note that there can't be any space between variable and value.**\
+SECRET_KEY=supersecretvalue     :white-check-mark:\
+SECRET_KEY = supersecretvalue   :x:\
 **To get You new secret key use [This site](https://djecrety.ir/), or create in any other way 50 characters random string**
 ```
 SECRET_KEY=Your_Secret_Key
@@ -55,17 +68,49 @@ DB_HOST=Your_DB_Host        # Default: localhost or 127.0.0.1
 DB_PORT=Your_DB_Port        # Default: 5432
 ```
 
-2. Migrate models 
+**II. Migrate models
 ```bash
 # Make migrations
 python manage.py makemigrations
 # Migrate
 python manage.py migrate
 ```
+
+
 # 4. Using 
+You need two consoles opened to run this project: first for Celery tasks, and second for Django itself. Make sure Virtual Environment is activated on both consoles.\
+**I. Run Redis and Celery**
+To run Redis server run `redis-server` on Linux/Mac or `redis-server.exe` on Windows.\
+To run Celery type in Your console:
+```bash
+celery -A root worker -l INFO
+# Sometimes that does not work and instead you need to run:
+python -m celery -A root worker -l INFO
+```
 
 
+**II. Run Django app**
+Run Django server
+```bash
+python manage.py runserver
+```
+Open Django app in the browser, or send request through Postman or Curl to this adress:\
+`localhost:8000/api`
 
+**III. Sending emails**
+To send email you first need to define Mailbox and Template, and then post Email.
+
+
+```json
+{
+    "to": [<list of email adresses>],
+    "cc": [<list of email adresses>],
+    "bcc": [<list of email adresses>],
+    "reply_to": "<email_adress>",
+    "mailbox": <id>,
+    "template": <id>
+}
+```
 
 
 
