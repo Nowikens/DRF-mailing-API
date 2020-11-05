@@ -54,8 +54,8 @@ pip install -r requirements.txt
 #### 3. Configurations
 **I. .env file**\
 **Note that there can't be any space between variable and value.**\
-SECRET_KEY=supersecretvalue     :white-check-mark:\
-SECRET_KEY = supersecretvalue   :x:\
+SECRET_KEY=supersecretvalue- - :heavy_check_mark:\
+SECRET_KEY = supersecretvalue - :no_entry_sign:\
 **To get You new secret key use [This site](https://djecrety.ir/), or create in any other way 50 characters random string**
 ```
 SECRET_KEY=Your_Secret_Key
@@ -98,9 +98,30 @@ Open Django app in the browser, or send request through Postman or Curl to this 
 `localhost:8000/api`
 
 **III. Sending emails**
-To send email you first need to define Mailbox and Template, and then post Email.
+To send email you first need to define Mailbox and Template, and then post Email.\
+**Mailbox**
+```json
+{
+    "host": "<smtp host>",
+    "port": <port number>,
+    "login": "<login to smtp serwer>",
+    "password": "<password to smtp serwer>",
+    "email_from": "<name of sender>",
+    "use_ssl": <true/false>,
+    "is_active": <true/false>
+}
+```
+**Template**
+```json
+{
+    "subject": "",
+    "text": "",
+    "attachment": <path to attachment>
+}
+```
 
 
+**EMAIL**
 ```json
 {
     "to": [<list of email adresses>],
@@ -111,9 +132,3 @@ To send email you first need to define Mailbox and Template, and then post Email
     "template": <id>
 }
 ```
-
-
-
-
-
-
