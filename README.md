@@ -111,7 +111,7 @@ python manage.py migrate
 ```
 
 
-# 4. Using\ 
+# 4. Using
 You need two consoles opened to run this project: first for Celery tasks, and second for Django itself. Make sure Virtual Environment is activated on both consoles.\
 **I. Run Redis and Celery**\
 To run Redis server run `redis-server` on Linux/Mac or `redis-server.exe` on Windows.\
