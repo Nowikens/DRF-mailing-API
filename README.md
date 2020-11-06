@@ -100,9 +100,9 @@ Open Django app in the browser, or send request through Postman or Curl to this 
 **III. Sending emails**
 To send email you first need to define Mailbox and Template, and then post Email.\
 **Mailbox**
-```json
+```
 {
-    "host": "(smtp host)",
+    "host": "<smtp host>",
     "port": (port number),
     "login": "(login to smtp serwer)",
     "password": "(password to smtp serwer)",
@@ -112,7 +112,7 @@ To send email you first need to define Mailbox and Template, and then post Email
 }
 ```
 **Template**
-```json
+```
 {
     "subject": "",
     "text": "",
