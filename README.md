@@ -11,7 +11,38 @@ Endpoint            |Method            |Result
 `api/template/:id/`|***GET, PUT, PATCH, DELETE*** |GET one, UPDATE one, DELETE one
  | |
 `api/email/`|***GET, POST***|GET all, POST new and try to send it
-# Post request example
+# Post requests patterns
+**Mailbox**
+```
+{
+    "host": "<smtp host>",
+    "port": <port number>,
+    "login": "<login to smtp serwer>",
+    "password": "<password to smtp serwer>",
+    "email_from": "<name of sender>",
+    "use_ssl": <true/false>,
+    "is_active": <true/false>
+}
+```
+**Template**
+```
+{
+    "subject": "",
+    "text": "",
+    "attachment": <path to attachment>
+}
+```
+**EMAIL**
+```
+{
+    "to": [<list of email adresses>],
+    "cc": [<list of email adresses>],
+    "bcc": [<list of email adresses>],
+    "reply_to": "(email_adress>",
+    "mailbox": <id>,
+    "template": <id>
+}
+```
 # Used components:
 - [Python](https://www.python.org/) 3.8.3
 - [Django](https://www.djangoproject.com/) 3.1.2
@@ -98,37 +129,4 @@ Open Django app in the browser, or send request through Postman or Curl to this 
 `localhost:8000/api`
 
 **III. Sending emails**
-To send email you first need to define Mailbox and Template by posting them, and then You can post, and therefore send Email.\
-**Mailbox**
-```
-{
-    "host": "<smtp host>",
-    "port": <port number>,
-    "login": "<login to smtp serwer>",
-    "password": "<password to smtp serwer>",
-    "email_from": "<name of sender>",
-    "use_ssl": <true/false>,
-    "is_active": <true/false>
-}
-```
-**Template**
-```
-{
-    "subject": "",
-    "text": "",
-    "attachment": <path to attachment>
-}
-```
-
-
-**EMAIL**
-```
-{
-    "to": [<list of email adresses>],
-    "cc": [<list of email adresses>],
-    "bcc": [<list of email adresses>],
-    "reply_to": "(email_adress>",
-    "mailbox": <id>,
-    "template": <id>
-}
-```
+To send email You first need to create Mailbox and Template. Follow post requests schemas to send email.
