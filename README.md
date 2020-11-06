@@ -36,7 +36,7 @@ virtualenv virtualenv_name
 ./virtualenv_name/scripts/activate.bat
 ```
 #### 2. Install and configure PostgreSQL
-Django girls has great tutorial [HERE](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation)
+Django Girls has great tutorial [HERE](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation)
 #### 3. Install Redis
 [For linux/mac](https://redis.io/download) - Download needed files, scroll downand follow instructions.\
 [For windows](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504) - For windows You have to download ` Redis-x64-3.0.504.zip` file. Extract containing files, place of extraction does not matter.
@@ -77,9 +77,9 @@ python manage.py migrate
 ```
 
 
-# 4. Using 
+# 4. Using\ 
 You need two consoles opened to run this project: first for Celery tasks, and second for Django itself. Make sure Virtual Environment is activated on both consoles.\
-**I. Run Redis and Celery**
+**I. Run Redis and Celery**\
 To run Redis server run `redis-server` on Linux/Mac or `redis-server.exe` on Windows.\
 To run Celery type in Your console:
 ```bash
@@ -98,17 +98,17 @@ Open Django app in the browser, or send request through Postman or Curl to this 
 `localhost:8000/api`
 
 **III. Sending emails**
-To send email you first need to define Mailbox and Template, and then post Email.\
+To send email you first need to define Mailbox and Template by posting them, and then You can post, and therefore send Email.\
 **Mailbox**
 ```
 {
     "host": "<smtp host>",
-    "port": (port number),
-    "login": "(login to smtp serwer)",
-    "password": "(password to smtp serwer)",
-    "email_from": "(name of sender)",
-    "use_ssl": (true/false),
-    "is_active": (true/false)
+    "port": <port number>,
+    "login": "<login to smtp serwer>",
+    "password": "<password to smtp serwer>",
+    "email_from": "<name of sender>",
+    "use_ssl": <true/false>,
+    "is_active": <true/false>
 }
 ```
 **Template**
@@ -124,11 +124,11 @@ To send email you first need to define Mailbox and Template, and then post Email
 **EMAIL**
 ```
 {
-    "to": [(list of email adresses)],
-    "cc": [(list of email adresses)],
-    "bcc": [(list of email adresses)],
-    "reply_to": "(email_adress)",
-    "mailbox": (id),
-    "template": (id)
+    "to": [<list of email adresses>],
+    "cc": [<list of email adresses>],
+    "bcc": [<list of email adresses>],
+    "reply_to": "(email_adress>",
+    "mailbox": <id>,
+    "template": <id>
 }
 ```
