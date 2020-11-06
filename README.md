@@ -122,7 +122,7 @@ To send email you first need to define Mailbox and Template, and then post Email
 
 
 **EMAIL**
-```json
+```
 {
     "to": [(list of email adresses)],
     "cc": [(list of email adresses)],
