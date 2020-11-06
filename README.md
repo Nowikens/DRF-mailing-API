@@ -1,5 +1,5 @@
-# Mailing API build with Django Rest Framework
-Api lets You define Mailbox from which email will be sent, Template which is the content of you email and Email which sets adresees.
+# Mailing API built with Django Rest Framework
+Api lets You send Email from Mailbox defined by You
 
 # ENDPOINTS
 Endpoint            |Method            |Result
@@ -68,7 +68,7 @@ DB_HOST=Your_DB_Host        # Default: localhost or 127.0.0.1
 DB_PORT=Your_DB_Port        # Default: 5432
 ```
 
-**II. Migrate models
+**II. Migrate models**
 ```bash
 # Make migrations
 python manage.py makemigrations
@@ -102,13 +102,13 @@ To send email you first need to define Mailbox and Template, and then post Email
 **Mailbox**
 ```json
 {
-    "host": "<smtp host>",
-    "port": <port number>,
-    "login": "<login to smtp serwer>",
-    "password": "<password to smtp serwer>",
-    "email_from": "<name of sender>",
-    "use_ssl": <true/false>,
-    "is_active": <true/false>
+    "host": "(smtp host)",
+    "port": (port number),
+    "login": "(login to smtp serwer)",
+    "password": "(password to smtp serwer)",
+    "email_from": "(name of sender)",
+    "use_ssl": (true/false),
+    "is_active": (true/false)
 }
 ```
 **Template**
@@ -124,11 +124,11 @@ To send email you first need to define Mailbox and Template, and then post Email
 **EMAIL**
 ```json
 {
-    "to": [<list of email adresses>],
-    "cc": [<list of email adresses>],
-    "bcc": [<list of email adresses>],
-    "reply_to": "<email_adress>",
-    "mailbox": <id>,
-    "template": <id>
+    "to": [(list of email adresses)],
+    "cc": [(list of email adresses)],
+    "bcc": [(list of email adresses)],
+    "reply_to": "(email_adress)",
+    "mailbox": (id),
+    "template": (id)
 }
 ```
