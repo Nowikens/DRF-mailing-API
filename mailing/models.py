@@ -7,11 +7,11 @@ import uuid
 
 class Mailbox(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    host = models.CharField(max_length=100)
+    host = models.CharField(max_length=255)
     port = models.IntegerField(default=465)
     login = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    email_from = models.CharField(max_length=100)
+    email_from = models.CharField(max_length=255)
     use_ssl = models.BooleanField(default=True)
     is_active = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
