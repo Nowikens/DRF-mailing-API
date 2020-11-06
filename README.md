@@ -15,32 +15,32 @@ Endpoint            |Method            |Result
 **Mailbox**
 ```
 {
-    "host": "<smtp host>",
-    "port": <port number>,
-    "login": "<login to smtp serwer>",
-    "password": "<password to smtp serwer>",
-    "email_from": "<name of sender>",
-    "use_ssl": <true/false>,
-    "is_active": <true/false>
+    "host": "<smtp host>",                   //string
+    "port": <port number>,                   //int
+    "login": "<login to smtp serwer>",       //string
+    "password": "<password to smtp serwer>", //string
+    "email_from": "<name of sender>",        //email string
+    "use_ssl": <true/false>,                 //boolean
+    "is_active": <true/false>                //boolean
 }
 ```
 **Template**
 ```
 {
-    "subject": "",
-    "text": "",
-    "attachment": <path to attachment>
+    "subject": "",                       //string
+    "text": "",                          //string
+    "attachment": <path to attachment>   //string
 }
 ```
 **EMAIL**
 ```
 {
-    "to": [<list of email adresses>],
-    "cc": [<list of email adresses>],
-    "bcc": [<list of email adresses>],
-    "reply_to": "(email_adress>",
-    "mailbox": <id>,
-    "template": <id>
+    "to": [<list of email adresses>],   //each element is email string
+    "cc": [<list of email adresses>],   //each element is email string
+    "bcc": [<list of email adresses>],  //each element is email string
+    "reply_to": "(email_adress>",       //email string
+    "mailbox": "<id>",                  //string
+    "template": "<id>"                  //string
 }
 ```
 # Used components:
@@ -71,6 +71,8 @@ Django Girls has great tutorial [HERE](https://tutorial-extensions.djangogirls.o
 #### 3. Install Redis
 [For linux/mac](https://redis.io/download) - Download needed files, scroll downand follow instructions.\
 [For windows](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504) - For windows You have to download ` Redis-x64-3.0.504.zip` file. Extract containing files, place of extraction does not matter.
+
+You can of course use other Celery broker if You like, you can find them [HERE](https://docs.celeryproject.org/en/stable/getting-started/brokers/)
 #### 4. Clone repository and install requirements
 ```bash
 # Clone repository
@@ -83,7 +85,8 @@ pip install -r requirements.txt
 
 
 #### 3. Configurations
-**I. .env file**\
+**I. `.env` file**\
+Create `.env` file in the `root` folder.
 **Note that there can't be any space between variable and value.**\
 SECRET_KEY=supersecretvalue- - :heavy_check_mark:\
 SECRET_KEY = supersecretvalue - :no_entry_sign:\
