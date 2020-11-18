@@ -11,6 +11,12 @@ Endpoint            |Method            |Result
 `api/template/:id/`|***GET, PUT, PATCH, DELETE*** |GET one, UPDATE one, DELETE one
  | |
 `api/email/`|***GET, POST***|GET all, POST new and try to send it
+# Filtering mails
+You can also filter Emails by date (date of creation of object) and by fulfilmet of sent date field - if celery accomplished sending email it will fill sent date field, if not sent_date field will be null.\
+Filtering by Date.\
+`api/email/?date=YYYY-MM-DD` e.g. `api/email/?date=2020-30-01`
+Filtering by sent date.\
+`api/email/?sent_date=<true/false>` e.g. `api/email/?sent_date=true`
 # Post requests patterns
 **Mailbox**
 ```
